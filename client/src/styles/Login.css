@@ -1,0 +1,176 @@
+/* 1. Body with background (image or gradient) */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    /* If you prefer the gradient, leave this:
+       background: linear-gradient(to right, #6a11cb, #2575fc);
+       If you want the Jain image, replace with something like:
+       background: url('../assets/jain.png') no-repeat center center;
+       background-size: cover;
+    */
+    /* background: linear-gradient(to right, #6a11cb, #2575fc); */
+    background: url('../assets/jain.png') no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    color: #fff;
+    /* We'll center the .login-container with flex, or you can do it inside .login-container itself */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* 2. Optional overlay (if you use an image and want it darkened) */
+  body::before {
+    /* Remove or comment out if using just a gradient */
+    content: "";
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0;
+    background: rgba(0,0,0,0.3); /* dark overlay */
+    z-index: 0;
+  }
+  
+  /* 3. Container that centers the card */
+  .login-container {
+    position: relative; /* so the overlay stays behind */
+    z-index: 1;         /* above the overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    width: 100%;
+  }
+  
+  /* 4. The login card (white box) */
+  .login-card {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    padding: 30px 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    
+    /* Simple fade/slide in animation */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+  }
+  
+  /* 5. Title styling */
+  .login-card h2 {
+    margin-bottom: 20px;
+    color: #2575fc;
+    font-size: 24px;
+    font-weight: 600;
+  }
+  
+  /* 6. Role selection (radio buttons) */
+  .role-selection {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .role-selection label {
+    cursor: pointer;
+    color: #333;
+  }
+  
+  .role-selection input[type="radio"] {
+    margin-right: 5px;
+  }
+  
+  /* 7. Input groups */
+  .input-group {
+    margin-bottom: 20px;
+  }
+  
+  .input-group input,
+  .input-group select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 5px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 16px;
+    background-color: #f5f7fa;
+    transition: border 0.3s ease;
+  }
+  
+  .input-group input:focus,
+  .input-group select:focus {
+    border-color: #2575fc;
+    outline: none;
+  }
+  
+  /* 8. Login button */
+  .login-button {
+    width: 100%;
+    padding: 12px;
+    background: #2575fc;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .login-button:hover {
+    background: #6a11cb;
+  }
+  
+  /* 9. Links & messages */
+  .login-link {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .login-link a {
+    color: #2575fc;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .login-link a:hover {
+    text-decoration: underline;
+  }
+  
+  .login-message {
+    margin-top: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    color: red; /* Error message in red */
+    text-align: center;
+  }
+  
+  .login-message.success {
+    color: green; /* Success message in green */
+  }
+  
+  /* 10. Fade-in-up animation keyframes */
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* 11. Responsive adjustments */
+  @media (max-width: 768px) {
+    .login-card {
+      margin: 0 20px;
+    }
+    .login-card h2 {
+      font-size: 20px;
+    }
+  }
+  

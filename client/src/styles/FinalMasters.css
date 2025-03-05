@@ -1,0 +1,299 @@
+/***************************************
+ * UNIT MASTER STYLES
+ ***************************************/
+ .um-container {
+  width: 650px;
+  margin: 30px auto;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.um-heading {
+  margin-bottom: 20px;
+  font-size: 1.6rem;
+  color: #333;
+}
+.um-add-btn {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+.um-add-btn:hover {
+  background-color: #218838;
+}
+
+.um-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 15px;
+}
+.um-table th,
+.um-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #333;
+}
+.um-table th {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.um-edit-btn {
+  background-color: #ffc107;
+  color: #000;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+.um-edit-btn:hover {
+  background-color: #e0a800;
+}
+.um-delete-btn {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.um-delete-btn:hover {
+  background-color: #c82333;
+}
+
+/* Modal Overlay */
+.um-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Modal Box */
+.um-modal {
+  background: #fff;
+  border-radius: 8px;
+  width: 420px;
+  max-width: 90%;
+  padding: 20px;
+  position: relative;
+}
+.um-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #dc3545;
+  cursor: pointer;
+}
+
+/* Form */
+.um-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+.um-form label {
+  text-align: left;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+.um-form input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+.um-save-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.um-save-btn:hover {
+  background-color: #0056b3;
+}
+
+/***************************************
+ * INVENTORY MASTER STYLES
+ ***************************************/
+.im-container {
+  width: 900px;
+  margin: 30px auto;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.im-heading {
+  margin-bottom: 20px;
+  font-size: 1.6rem;
+  color: #333;
+}
+.im-add-btn {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+.im-add-btn:hover {
+  background-color: #218838;
+}
+
+.im-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 15px;
+}
+.im-table th,
+.im-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #333;
+}
+.im-table th {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.im-edit-btn {
+  background-color: #ffc107;
+  color: #000;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+.im-edit-btn:hover {
+  background-color: #e0a800;
+}
+.im-delete-btn {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.im-delete-btn:hover {
+  background-color: #c82333;
+}
+
+/* Modal Overlay */
+.im-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Modal Box */
+.im-modal {
+  background: #fff;
+  border-radius: 8px;
+  width: 480px;
+  max-width: 90%;
+  padding: 20px;
+  position: relative;
+}
+.im-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #dc3545;
+  cursor: pointer;
+}
+
+/* Tally-like 2-column layout for the form */
+.im-form {
+  display: grid;
+  grid-template-columns: 120px 1fr; /* label column, input column */
+  gap: 10px 15px; /* spacing between rows/columns */
+  margin-top: 10px;
+}
+.im-form label {
+  text-align: right;
+  margin-top: 5px;
+  font-weight: bold;
+  color: #333;
+}
+.im-form input,
+.im-form select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+/* If you have a row that needs to span both columns (e.g., submit button) */
+.im-form-submit {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.im-save-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.im-save-btn:hover {
+  background-color: #0056b3;
+}
+.quantity-input-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px; /* optional spacing */
+}
+
+.quantity-unit {
+  margin-left: 8px;
+  font-weight: bold;
+}

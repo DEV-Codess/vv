@@ -1,0 +1,276 @@
+/* UNIT MASTER STYLES */
+.unitMasterContainer {
+    width: 600px;
+    margin: 40px auto;
+    background-color: #fdfdfd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    font-family: sans-serif;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  }
+  
+  .unitMasterHeading {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .unitAddBtn {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  .unitAddBtn:hover {
+    background-color: #218838;
+  }
+  
+  .unitTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  .unitTable th, .unitTable td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+  }
+  .unitTable th {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  /* Action Buttons */
+  .unitEditBtn {
+    background-color: #ffc107;
+    color: #000;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 5px;
+  }
+  .unitEditBtn:hover {
+    background-color: #e0a800;
+  }
+  .unitDeleteBtn {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .unitDeleteBtn:hover {
+    background-color: #c82333;
+  }
+  
+  /* Modal Overlay */
+  .unitModalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Modal Content */
+  .unitModalContent {
+    background: #fff;
+    border-radius: 8px;
+    width: 400px;
+    max-width: 90%;
+    padding: 20px;
+    position: relative;
+  }
+  .unitCloseBtn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #dc3545;
+    cursor: pointer;
+  }
+  
+  /* Form */
+  .unitForm {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  .unitForm label {
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  .unitForm input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  .unitSaveBtn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .unitSaveBtn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* ------------------------------------------------------------
+     INVENTORY MASTER STYLES
+     (You can keep them separate or combined; example below)
+     ------------------------------------------------------------ */
+  .inventoryMasterContainer {
+    width: 800px;
+    margin: 40px auto;
+    background-color: #fafafa;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    font-family: sans-serif;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  }
+  
+  .inventoryMasterHeading {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .inventoryAddBtn {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  .inventoryAddBtn:hover {
+    background-color: #218838;
+  }
+  
+  .inventoryTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  .inventoryTable th, .inventoryTable td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+  }
+  .inventoryTable th {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  /* Action Buttons */
+  .inventoryEditBtn {
+    background-color: #ffc107;
+    color: #000;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 5px;
+  }
+  .inventoryEditBtn:hover {
+    background-color: #e0a800;
+  }
+  .inventoryDeleteBtn {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .inventoryDeleteBtn:hover {
+    background-color: #c82333;
+  }
+  
+  /* Modal Overlay */
+  .inventoryModalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Modal Content */
+  .inventoryModalContent {
+    background: #fff;
+    border-radius: 8px;
+    width: 500px;
+    max-width: 90%;
+    padding: 20px;
+    position: relative;
+  }
+  .inventoryCloseBtn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #dc3545;
+    cursor: pointer;
+  }
+  
+  /* Form */
+  .inventoryForm {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  .inventoryForm label {
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  .inventoryForm input,
+  .inventoryForm select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  .inventorySaveBtn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .inventorySaveBtn:hover {
+    background-color: #0056b3;
+  }
+  

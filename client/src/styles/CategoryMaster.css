@@ -1,0 +1,272 @@
+/* 1. Body with full-page background (no scrolling) */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: url('../assets/jain.png') center center / cover no-repeat;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* prevent full-page scrolling */
+    position: relative;
+  }
+  
+  /* Optional overlay to dim the background for better contrast */
+  body::before {
+    content: "";
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0;
+    background: rgba(0,0,0,0.3);
+    z-index: 0;
+  }
+  
+  /* 2. Wrapper that centers the cat-container card */
+  .cat-wrapper {
+    position: relative;
+    z-index: 1; /* above overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    padding: 20px;
+  }
+  
+  /* 3. White card container */
+  .cat-container {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    width: 100%;
+    max-width: 900px;
+    padding: 20px 30px;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    max-height: 90vh; /* so it doesn't overflow the screen */
+  
+    /* Fade-in-up animation */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: catFadeInUp 0.8s ease forwards;
+  }
+  
+  @keyframes catFadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* 4. Header row with flex layout */
+  .cat-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px; /* space below header */
+  }
+  
+  .cat-heading {
+    margin: 0;
+    font-size: 1.6rem;
+    color: #333;
+  }
+  
+  /* 5. Add button only as wide as text */
+  .cat-add-btn {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    width: auto;
+    display: inline-block;
+  }
+  
+  .cat-add-btn:hover {
+    background-color: #218838;
+  }
+  
+  /* 6. Table container (scroll only inside the table) */
+  .cat-table-container {
+    flex-grow: 1;
+    overflow-y: auto; /* vertical scroll */
+    border-top: 2px solid #ddd;
+    padding-top: 10px;
+  }
+  
+  /* 7. Tree table styling */
+  .cat-tree-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+  }
+  
+  .cat-tree-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    font-size: 0.95rem;
+    color: #333;
+  }
+  
+  /* Indent the first column for hierarchical display */
+  .cat-tree-table td:first-child {
+    text-align: left;
+    white-space: pre; /* preserve indentation spaces */
+  }
+  
+  .cat-tree-table tr:nth-child(even) {
+    background-color: #f8f8f8;
+  }
+  
+  .cat-tree-table tr:hover {
+    background-color: #e6f2ff;
+    transition: background 0.3s ease;
+  }
+  
+  /* 8. Action buttons */
+  .cat-edit-btn,
+  .cat-delete-btn {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 4px;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    transition: background 0.3s ease;
+  }
+  
+  .cat-edit-btn {
+    background-color: #ffc107;
+    color: #333;
+  }
+  .cat-edit-btn:hover {
+    background-color: #e0a800;
+  }
+  
+  .cat-delete-btn {
+    background-color: #dc3545;
+    color: #fff;
+  }
+  .cat-delete-btn:hover {
+    background-color: #c82333;
+  }
+  
+  /* 9. Popup overlay: center the .cat-modal */
+  .cat-overlay {
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 9999;
+    display: flex;               /* key for centering */
+    align-items: center;         /* vertical center */
+    justify-content: center;     /* horizontal center */
+    padding: 10px;
+  }
+  
+  /* The modal container */
+  .cat-modal {
+    background: #fff;
+    border-radius: 8px;
+    width: 420px;
+    max-width: 90%;
+    padding: 20px;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  
+  /* Close button */
+  .cat-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #dc3545;
+    cursor: pointer;
+  }
+  
+  /* 10. Form layout: label column, input column */
+  .cat-form {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 10px 15px;
+    margin-top: 10px;
+  }
+  
+  .cat-form label {
+    text-align: right;
+    margin-top: 5px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .cat-form input,
+  .cat-form select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+  }
+  
+  .cat-form-submit {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-top: 5px;
+  }
+  
+  .cat-save-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .cat-save-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* 11. Responsive adjustments */
+  @media (max-width: 768px) {
+    .cat-container {
+      padding: 15px 20px;
+    }
+    .cat-heading {
+      font-size: 1.3rem;
+    }
+    .cat-form {
+      grid-template-columns: 1fr; /* single column on small screens */
+    }
+    .cat-form label {
+      text-align: left;
+      margin-top: 0;
+    }
+    .cat-add-btn {
+      padding: 6px 10px;
+      font-size: 14px;
+    }
+    .cat-edit-btn, .cat-delete-btn {
+      padding: 5px 8px;
+      font-size: 13px;
+    }
+  }
+  

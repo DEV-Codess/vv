@@ -1,0 +1,279 @@
+/* 1. Body with full-page background (no scrolling) */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: url('../assets/jain.png') center center / cover no-repeat;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* prevent full-page scrolling */
+    position: relative;
+  }
+  
+  /* Optional overlay for contrast */
+  body::before {
+    content: "";
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0;
+    background: rgba(0,0,0,0.3);
+    z-index: 0;
+  }
+  
+  /* 2. Wrapper for the .um-container card */
+  .um-wrapper {
+    position: relative;
+    z-index: 1; /* above overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    padding: 20px;
+  }
+  
+  /* 3. White card container */
+  .um-container {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    width: 100%;
+    max-width: 900px;
+    padding: 20px 30px;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    max-height: 90vh; /* so it doesn't overflow the screen */
+  
+    /* Fade-in-up animation */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+  }
+  
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* 4. Header row (title + add button) */
+  .um-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+  
+  .um-heading {
+    margin: 0;
+    font-size: 1.6rem;
+    color: #333;
+  }
+  
+  /* Add button */
+  .um-add-btn {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    width: auto;
+    display: inline-block;
+  }
+  .um-add-btn:hover {
+    background-color: #218838;
+  }
+  
+  /* 5. Table container (scroll only inside the table) */
+  .um-table-container {
+    flex-grow: 1;
+    overflow-y: auto;
+    border-top: 2px solid #ddd;
+    padding-top: 10px;
+  }
+  
+  /* 6. Table styling */
+  .um-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+  }
+  .um-table th,
+  .um-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    font-size: 0.95rem;
+    color: #333;
+  }
+  .um-table th {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  /* Edit & Delete buttons */
+  .um-edit-btn,
+  .um-delete-btn {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 4px;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    transition: background 0.3s ease;
+  }
+  .um-edit-btn {
+    background-color: #ffc107;
+    color: #333;
+  }
+  .um-edit-btn:hover {
+    background-color: #e0a800;
+  }
+  .um-delete-btn {
+    background-color: #dc3545;
+    color: #fff;
+  }
+  .um-delete-btn:hover {
+    background-color: #c82333;
+  }
+  
+  /* 7. fadeInUp keyframes for the .um-container */
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* 8. Overlay + Modal (key for centering the form) */
+  .overlay {
+    position: fixed;
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    display: flex;            /* crucial for centering */
+    align-items: center;      /* vertical center */
+    justify-content: center;  /* horizontal center */
+  }
+  
+  .modal {
+    background: #fff;
+    border-radius: 8px;
+    width: 400px; /* or 420px, 480px, etc. */
+    max-width: 90%;
+    padding: 20px;
+    position: relative;
+    margin: 0 auto;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  
+  /* Close button */
+  .um-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #dc3545;
+    cursor: pointer;
+  }
+  
+  /* 9. Form layout inside the modal */
+  .um-form {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 10px 15px;
+    margin-top: 10px;
+  }
+  .um-form label {
+    text-align: right;
+    margin-top: 5px;
+    font-weight: bold;
+    color: #333;
+  }
+  .um-form input,
+  .um-form select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+  }
+  
+  .um-permissions {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .um-checkbox-item {
+    display: flex;
+    align-items: center;
+  }
+  .um-checkbox-item input {
+    margin-right: 5px;
+  }
+  
+  .um-form-submit {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-top: 5px;
+  }
+  .um-save-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .um-save-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* 10. Responsive adjustments */
+  @media (max-width: 768px) {
+    .um-container {
+      padding: 15px 20px;
+    }
+    .um-heading {
+      font-size: 1.3rem;
+    }
+    .um-form {
+      grid-template-columns: 1fr; /* single column on small screens */
+    }
+    .um-form label {
+      text-align: left;
+      margin-top: 0;
+    }
+    .um-add-btn {
+      padding: 6px 10px;
+      font-size: 14px;
+    }
+    .um-edit-btn, .um-delete-btn {
+      padding: 5px 8px;
+      font-size: 13px;
+    }
+  }
+  

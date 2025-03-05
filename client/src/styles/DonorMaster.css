@@ -1,0 +1,262 @@
+/* 1. Body with full-page background (fixed height) */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: url('../assets/jain.png') center center / cover no-repeat;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Prevent full page scrolling */
+  position: relative;
+}
+
+/* 2. Wrapper for centering the main card */
+.donor-master-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  padding: 20px;
+  position: relative;
+}
+
+/* 3. White card container for Donor list */
+.donor-master-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  width: 100%;
+  max-width: 900px;
+  padding: 20px 30px;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh; /* So it doesn’t overflow the screen */
+
+  /* Fade-in-up animation */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 4. Header: Title + Add button */
+.donor-master-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.donor-master-header h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Add Donor button */
+.add-btn {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.add-btn:hover {
+  background-color: #45a049;
+}
+
+/* 5. Table container (scroll inside the card) */
+.table-responsive {
+  flex-grow: 1;
+  overflow-y: auto;
+  border-top: 2px solid #ddd;
+  padding-top: 10px;
+}
+
+/* Donor table */
+.donor-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.donor-table th {
+  background-color: #007bff;
+  color: #fff;
+  padding: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+.donor-table td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+  color: #333;
+  font-weight: 500;
+}
+
+.donor-table tr:nth-child(even) {
+  background-color: #f8f8f8;
+}
+
+.donor-table tr:hover {
+  background-color: #e6f2ff;
+  transition: background 0.3s ease;
+}
+
+/* Edit & Delete Buttons */
+.edit-btn, .delete-btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 4px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.edit-btn {
+  background-color: #ffc107;
+  color: #333;
+}
+.edit-btn:hover {
+  background-color: #e0a800;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: #fff;
+}
+.delete-btn:hover {
+  background-color: #c82333;
+}
+
+/* 6. Modal overlay: center the popup container, no scrolling inside form */
+.popup-overlay {
+  position: fixed;
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  z-index: 9999;
+  padding: 10px;
+}
+
+/* 7. Popup container: wider, smaller font, no internal scroll */
+.popup-container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;              /* Increase overall width */
+  max-width: 900px;        /* Could be 900px or 700px, your choice */
+  /* No max-height => no scroll, but watch for tall forms */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #dc3545;
+}
+
+/* 8. Two-column form layout with smaller font & spacing */
+.responsive-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 15px; /* slightly smaller gap to reduce space */
+  margin-top: 5px; /* smaller top margin */
+  font-size: 0.85rem; /* reduce overall font size */
+}
+
+.responsive-form > div {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Full-width for large fields or final button row */
+.full-width {
+  grid-column: 1 / -1;
+}
+
+/* Labels & inputs with smaller padding */
+.responsive-form label {
+  margin-bottom: 3px;  /* less margin below label */
+  font-weight: 600;
+  color: #333;
+  font-size: 0.85rem;  /* smaller label font */
+}
+
+.responsive-form input,
+.responsive-form textarea {
+  padding: 8px;          /* smaller padding */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.85rem;     /* smaller text size */
+  color: #333;
+  box-sizing: border-box;
+}
+
+.responsive-form textarea {
+  min-height: 50px;       /* slightly smaller min-height */
+  resize: vertical;
+}
+
+/* Submit row: full-width, center aligned */
+.form-submit {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+/* Save button: smaller padding & font */
+.submit-btn {
+  background: #007bff;
+  color: #fff;
+  padding: 8px 16px;     /* smaller button size */
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  font-size: 0.85rem;     /* smaller button text */
+}
+
+.submit-btn:hover {
+  background: #0056b3;
+}
+
+/* Single column on smaller screens */
+@media (max-width: 768px) {
+  .responsive-form {
+    grid-template-columns: 1fr;
+  }
+}

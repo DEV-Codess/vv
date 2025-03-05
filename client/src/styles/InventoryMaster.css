@@ -1,0 +1,248 @@
+/* 1. Body with full-page background (no scrolling) */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: url('../assets/jain.png') center center / cover no-repeat;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* prevent full-page scrolling */
+    position: relative;
+  }
+  
+  /* 2. .im-wrapper centers the main Inventory card */
+  .im-wrapper {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    padding: 20px;
+  }
+  
+  /* 3. .im-container is the white card for the Inventory list */
+  .im-container {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    width: 100%;
+    max-width: 900px;
+    padding: 20px 30px;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    max-height: 90vh; /* so it doesn't overflow the screen */
+  
+    /* Fade-in-up animation */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+  }
+  
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* 4. Header row: Title + Add button */
+  .im-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+  .im-heading {
+    margin: 0;
+    font-size: 1.6rem;
+    color: #333;
+  }
+  .im-add-btn {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    width: auto;
+    display: inline-block;
+  }
+  .im-add-btn:hover {
+    background-color: #218838;
+  }
+  
+  /* 5. Table container (scroll inside the card for inventory list) */
+  .im-table-container {
+    flex-grow: 1;
+    overflow-y: auto;
+    border-top: 2px solid #ddd;
+    padding-top: 10px;
+  }
+  
+  /* 6. Inventory table styling */
+  .im-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+  }
+  .im-table th,
+  .im-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    font-size: 0.95rem;
+    color: #333;
+  }
+  .im-table th {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  /* Edit & Delete Buttons */
+  .im-edit-btn,
+  .im-delete-btn {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 4px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+  }
+  .im-edit-btn {
+    background-color: #ffc107;
+    color: #333;
+  }
+  .im-edit-btn:hover {
+    background-color: #e0a800;
+  }
+  .im-delete-btn {
+    background-color: #dc3545;
+    color: #fff;
+  }
+  .im-delete-btn:hover {
+    background-color: #c82333;
+  }
+  
+  /* 7. Modal Overlay */
+  .im-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .im-modal {
+    background: #fff;
+    width: 600px; /* or whatever width you prefer */
+    max-width: 90%;
+    padding: 20px;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+    
+  /* Close button */
+  .im-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #dc3545;
+    cursor: pointer;
+  }
+  
+  /* 9. 2-Column form grid (like .im-form-grid) */
+  .im-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns side by side */
+    gap: 10px 15px;
+    font-size: 0.9rem; /* slightly smaller text for a more compact layout */
+  }
+  
+  /* Each row is a .form-field (label + input) */
+  .form-field {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* If you need a row to span both columns, add .full-span */
+  .full-span {
+    grid-column: 1 / -1;
+  }
+  
+  /* Label + input styling */
+  .im-form-grid label {
+    margin-bottom: 3px;
+    font-weight: 600;
+    color: #333;
+  }
+  .im-form-grid input,
+  .im-form-grid select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+  }
+  
+  /* Photo row example */
+  .photo-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  /* Save button row (full span, center aligned) */
+  .im-save-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: background 0.3s ease;
+  }
+  .im-save-btn:hover {
+    background-color: #0056b3;
+  }
+  .overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;            /* crucial */
+    justify-content: center;  /* horizontal center */
+    align-items: center;      /* vertical center */
+    z-index: 9999;
+    padding: 10px;
+  }
+  
+  /* 10. Single column on smaller screens */
+  @media (max-width: 768px) {
+    .im-modal {
+      width: 90%;
+    }
+    .im-form-grid {
+      grid-template-columns: 1fr;
+    }
+    .im-form-grid label {
+      margin-bottom: 5px;
+    }
+  }
+  

@@ -1,0 +1,89 @@
+/* 1. Body background (gradient or image) */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+
+  /* If you prefer an image:
+     background: url('../assets/jain.png') no-repeat center center;
+     background-size: cover;
+  */
+  /* background: linear-gradient(to right, #6a11cb, #2575fc); */
+  background: url('../assets/jain.png') no-repeat center center;
+  background-size: cover;
+}
+
+/* 2. Wrapper for horizontal centering */
+.dashboard-wrapper {
+  max-width: 600px;  /* Slightly narrower than before (was 700px) */
+  margin: 20px auto; /* Reduced top & bottom margin from 60px to 20px */
+  padding: 0 10px;   /* Minimal horizontal padding */
+}
+
+/* 3. The white card container */
+.dashboard-container {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  color: #333;
+  padding: 20px;  /* Reduced from 30px */
+  
+  /* Fade-in-up animation */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+/* 4. Title */
+.dashboard-title {
+  margin-bottom: 15px;
+  font-size: 24px; /* Reduced from 28px */
+  font-weight: 600;
+}
+
+/* 5. Grid for buttons */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  /* ^ also reduced min width from 180px to 140px */
+  gap: 15px;  /* Reduced from 20px */
+}
+
+/* 6. Button styling */
+.dashboard-button {
+  background-color: #2575fc;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;     /* Reduced from 14px */
+  font-size: 14px;   /* Reduced from 16px */
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.dashboard-button:hover {
+  background-color: #6a11cb;
+}
+
+/* 7. Fade-in-up keyframes */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 8. Responsive adjustments */
+@media (max-width: 576px) {
+  .dashboard-container {
+    padding: 15px;
+  }
+  .dashboard-title {
+    font-size: 20px; /* Slightly smaller on mobile */
+  }
+  .dashboard-button {
+    font-size: 13px;
+    padding: 8px;
+  }
+}

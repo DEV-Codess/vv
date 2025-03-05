@@ -1,0 +1,98 @@
+/* 1. Body with background image */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: url('../assets/jain.png') no-repeat center center;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* We'll place .home-container in the center of the screen. */
+  }
+  
+  /* 2. Home container - center alignment if needed */
+  .home-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px; 
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* 3. White card container */
+  .home-content {
+    background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent white */
+    border-radius: 12px;
+    padding: 40px 30px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  
+    /* Animation properties */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease forwards;
+  }
+  
+  /* 4. Headings & paragraph */
+  .home-content h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #333; /* Dark text on white background */
+  }
+  
+  .home-content p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: #555;
+  }
+  
+  /* 5. Button styling */
+  .btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 14px 28px;
+    background-color: #6a11cb;
+    color: #fff;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #2575fc;
+  }
+  
+  /* 6. Keyframe animation for fadeInUp */
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* 7. Responsive adjustments */
+  @media (max-width: 768px) {
+    .home-content {
+      padding: 30px 20px;
+    }
+    
+    .home-content h1 {
+      font-size: 1.6rem;
+    }
+  
+    .home-content p {
+      font-size: 1rem;
+    }
+  
+    .btn {
+      padding: 10px 20px;
+      font-size: 14px;
+    }
+  }
+  

@@ -1,0 +1,249 @@
+/* 1. Body with full-page background (no scrolling) */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: url('../assets/jain.png') center center / cover no-repeat;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* prevent full-page scrolling */
+  position: relative;
+}
+
+/* Optional overlay to dim the background for better contrast */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.3);
+  z-index: 0;
+}
+
+/* 2. Wrapper that centers the card container */
+.maharaj-master-wrapper {
+  position: relative;
+  z-index: 1; /* above overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh; /* fill screen height */
+  padding: 20px;
+}
+
+/* 3. White card container */
+.maharaj-master-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  width: 100%;
+  max-width: 900px;
+  padding: 20px 30px;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh; /* so it doesn't overflow the screen */
+
+  /* Fade-in-up animation */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 4. Header: Title + Add button */
+.maharaj-master-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.maharaj-master-header h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Add button (green) */
+.add-btn {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.add-btn:hover {
+  background-color: #45a049;
+}
+
+/* 5. Scrollable table container */
+.table-container {
+  flex-grow: 1; /* expands to fill remaining space */
+  overflow-y: auto; /* vertical scroll */
+  border-top: 2px solid #ddd;
+  padding-top: 10px;
+}
+
+/* 6. Tree table styling */
+.tree-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tree-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+  color: #333;
+  font-weight: 500;
+}
+
+.tree-table tr:nth-child(even) {
+  background-color: #f8f8f8;
+}
+
+.tree-table tr:hover {
+  background-color: #e6f2ff;
+  transition: background 0.3s ease;
+}
+
+/* 7. Action buttons (edit, delete) */
+.action-btn {
+  background-color: #ffc107;
+  color: #000;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 5px;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.action-btn.edit:hover {
+  background-color: #e0a800;
+}
+
+.action-btn.delete {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.action-btn.delete:hover {
+  background-color: #c82333;
+}
+
+/* 8. Popup overlay & container */
+.popup-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.popup-container {
+  background: #fff;
+  border-radius: 8px;
+  width: 420px;
+  max-width: 90%;
+  padding: 20px;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #dc3545;
+  cursor: pointer;
+}
+
+/* 9. Form layout */
+.tally-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tally-form label {
+  font-weight: bold;
+  color: #333;
+}
+
+.tally-form input,
+.tally-form select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  box-sizing: border-box;
+  color: #333;
+  font-size: 14px;
+  transition: border 0.3s ease;
+}
+
+.tally-form input:focus,
+.tally-form select:focus {
+  border-color: #007bff;
+}
+
+/* Submit button */
+.submit-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+  margin-top: 10px;
+}
+
+.submit-btn:hover {
+  background-color: #0056b3;
+}
+
+/* 10. Responsive adjustments */
+@media (max-width: 768px) {
+  .maharaj-master-card {
+    padding: 15px 20px;
+  }
+  .maharaj-master-header h2 {
+    font-size: 20px;
+  }
+  .add-btn {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+  .action-btn {
+    padding: 5px 8px;
+    font-size: 13px;
+  }
+}

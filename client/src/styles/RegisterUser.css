@@ -1,0 +1,164 @@
+/* 1. Body background (gradient or image) */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    /* If you prefer an image, replace with:
+       background: url('../assets/jain.png') no-repeat center center;
+       background-size: cover;
+    */
+    /* background: linear-gradient(to right, #6a11cb, #2575fc); */
+    background: url('../assets/jain.png') no-repeat center center;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: #fff;
+  }
+  
+  /* Optional overlay to darken the background for contrast */
+  body::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.3);
+    z-index: 0;
+  }
+  
+  /* 2. The white card container */
+  .register-user-container {
+    position: relative;
+    z-index: 1; /* above the overlay */
+    width: 100%;
+    max-width: 500px;
+    margin: 20px;
+    padding: 20px 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: #333;
+  
+    /* Fade-in-up animation */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+  }
+  
+  /* 3. Title */
+  .register-user-container h2 {
+    margin-bottom: 20px;
+    color: #2575fc;
+    font-size: 24px;
+    font-weight: 600;
+  }
+  
+  /* 4. Input groups */
+  .input-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  .input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #666;
+    font-weight: 500;
+  }
+  
+  .input-group input,
+  .input-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: #f5f7fa;
+  }
+  
+  .input-group input:focus,
+  .input-group select:focus {
+    border-color: #2575fc;
+    outline: none;
+  }
+  
+  /* 5. Permissions group */
+  .permissions-group {
+    text-align: left;
+    margin-bottom: 15px;
+  }
+  
+  .permissions-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #666;
+    font-weight: 500;
+  }
+  
+  .checkboxes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .checkbox-item {
+    display: flex;
+    align-items: center;
+  }
+  
+  .checkbox-item input {
+    margin-right: 5px;
+  }
+  
+  /* 6. Submit button */
+  button[type="submit"] {
+    padding: 12px 20px;
+    background-color: #2575fc;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    margin-top: 10px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #6a11cb;
+  }
+  
+  /* 7. Form message */
+  .form-message {
+    margin-top: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* 8. fadeInUp animation keyframes */
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* 9. Responsive adjustments */
+  @media (max-width: 576px) {
+    .register-user-container {
+      margin: 10px;
+      padding: 15px 20px;
+    }
+    .register-user-container h2 {
+      font-size: 20px;
+    }
+    button[type="submit"] {
+      font-size: 14px;
+      padding: 10px;
+    }
+  }
+  
