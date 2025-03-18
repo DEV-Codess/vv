@@ -7,12 +7,13 @@ const MasterPage = () => {
   const navigate = useNavigate();
 
   const subMasterButtons = [
-    { label: "Maharaj Master", route: "/maharaj-master" },
-    { label: "Inventory Master", route: "/inventory-master" },
-    { label: "Category Master", route: "/category-master" },
-    { label: "Donation Center Master", route: "/donation-center-master" },
-    { label: "Donation Mode Master", route: "/donation-mode-master" },
-    { label: "Unit Master", route: "/unit-master" },
+    { label: "Maharaj", route: "/maharaj-master" },
+    { label: "Inventory", route: "/inventory-master" },
+    { label: "Category", route: "/category-master" },
+    { label: "Donation Center", route: "/donation-center-master" },
+    { label: "Donation Mode", route: "/donation-mode-master" },
+    { label: "Unit", route: "/unit-master" },
+    { label: "Exit", route: "/dashboard", static: true },
   ];
 
   return (

@@ -65,7 +65,7 @@ const DonationCenterMaster = () => {
       <div className="dc-container">
         {/* Header row: Title + Add button */}
         <div className="dc-header">
-          <h2 className="dc-heading">Donation Center Cum Store Master</h2>
+          <h2 className="dc-heading">Donation Center</h2>
           <button className="dc-add-btn" onClick={handleAddNew}>
             + Add Donation Center
           </button>

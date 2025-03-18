@@ -129,7 +129,7 @@ const MaharajMaster = () => {
     <div className="maharaj-master-wrapper">
       <div className="maharaj-master-card">
         <div className="maharaj-master-header">
-          <h2>Maharaj Master</h2>
+          <h2>Maharaj</h2>
           <button className="add-btn" onClick={handleAddNew}>
             + Add Maharaj
           </button>

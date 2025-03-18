@@ -146,7 +146,7 @@ const CategoryMaster = () => {
       <div className="cat-container">
         {/* Header row: Title + Add button */}
         <div className="cat-header">
-          <h2 className="cat-heading">Category Master</h2>
+          <h2 className="cat-heading">Category</h2>
           <button className="cat-add-btn" onClick={handleAddNew}>
             + Add Category
           </button>

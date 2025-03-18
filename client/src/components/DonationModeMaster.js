@@ -65,7 +65,7 @@ const DonationModeMaster = () => {
       <div className="dm-container">
         {/* Header row: Title + Add button */}
         <div className="dm-header">
-          <h2 className="dm-heading">Donation Mode Master</h2>
+          <h2 className="dm-heading">Donation Mode</h2>
           <button className="dm-add-btn" onClick={handleAddNew}>
             + Add Donation Mode
           </button>

@@ -51,7 +51,7 @@ const DonorMaster = () => {
       <div className="donor-master-card">
         {/* Header: Title + Add Donor Button */}
         <div className="donor-master-header">
-          <h2>Donor Master</h2>
+          <h2>Donor</h2>
           <button className="add-btn" onClick={handleAddNew}>
             + Add Donor
           </button>

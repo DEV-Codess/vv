@@ -34,12 +34,12 @@ function UserMaster() {
   // Fetch both users and centers from the backend
   const fetchAllData = async () => {
     try {
-      // 1) Get all users
+      // 1) Get all users from user routes
       const userRes = await axios.get('/api/users');
-      console.log("Users fetched:", userRes.data); // Debugging
+      console.log("Users fetched:", userRes.data);
       setUsers(userRes.data || []);
 
-      // 2) Get all centers
+      // 2) Get all centers from centers collection
       const centerRes = await axios.get('/api/centers');
       setCenters(centerRes.data || []);
     } catch (error) {
@@ -66,18 +66,18 @@ function UserMaster() {
       _id: user._id,
       username: user.username,
       email: user.email,
-      password: '',        // Typically, do NOT store plain text passwords
+      password: '', // Do not prefill password
       center: user.center || '',
       permissions: user.permissions || []
     });
     setShowModal(true);
   };
 
-  // Delete a user
+  // Delete a user using the /api/users endpoint
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this user?")) return;
     try {
-      await axios.delete(`/api/register-user/${id}`);
+      await axios.delete(`/api/users/${id}`);
       fetchAllData();
     } catch (error) {
       console.error("Delete error:", error);
@@ -105,11 +105,11 @@ function UserMaster() {
     });
   };
 
-  // Submit form (add or update)
+  // Submit form (add or update) via /api/users endpoint
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Check for duplicates by email if adding new
+    // Check for duplicate email if adding new user
     if (!formData._id) {
       const duplicate = users.find(
         u => u.email.trim().toLowerCase() === formData.email.trim().toLowerCase()
@@ -120,7 +120,7 @@ function UserMaster() {
       }
     }
 
-    // Prepare payload
+    // Prepare payload (note: password required only when adding new user)
     const payload = {
       username: formData.username.trim(),
       email: formData.email.trim(),
@@ -132,15 +132,15 @@ function UserMaster() {
     try {
       if (formData._id) {
         // Update existing user
-        await axios.put(`/api/register-user/${formData._id}`, payload);
+        await axios.put(`/api/users/${formData._id}`, payload);
       } else {
         // Add new user
-        await axios.post('/api/register-user', payload);
+        await axios.post('/api/users', payload);
       }
       fetchAllData();
       setShowModal(false);
     } catch (error) {
-      console.error(error);
+      console.error("Error saving user:", error);
       alert(error.response?.data?.message || 'Failed to save user');
     }
   };
@@ -150,7 +150,7 @@ function UserMaster() {
       <div className="um-container">
         {/* Header row: Title + Add button */}
         <div className="um-header">
-          <h2 className="um-heading">User Master</h2>
+          <h2 className="um-heading">User</h2>
           <button className="um-add-btn" onClick={handleAddNew}>
             + Add User
           </button>

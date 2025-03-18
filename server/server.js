@@ -5,6 +5,20 @@ require('dotenv').config(); // ✅ Load environment variables
 
 const app = express(); // ✅ Initialize app FIRST
 const PORT = process.env.PORT || 5000;
+const path = require("path");
+
+// Serve API endpoints as usual (for example, at /api/...).
+
+// For production, serve the React app under the /vv base path:
+if (process.env.NODE_ENV === "production") {
+  // Serve static assets from the client build folder under /vv
+  app.use("/vv", express.static(path.join(__dirname, "../client/build")));
+
+  // For any routes not matching your API, send back the React index.html:
+  app.get("/vv/*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../client/build", "index.html"));
+  });
+}
 
 // ✅ Middleware
 app.use(express.json());
